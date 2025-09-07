@@ -1,0 +1,85 @@
+{
+  "info": {
+    "name": "Auth API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"username\": \"{{username}}\", \"email\": \"{{email}}\", \"password\": \"{{password}}\" }"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/auth/register",
+          "host": ["{{BASE_URL}}"],
+          "path": ["auth", "register"]
+        }
+      }
+    },
+    {
+      "name": "Verify Email (OTP)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"email\": \"{{email}}\", \"otp\": \"{{otp}}\" }"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/auth/verify-email",
+          "host": ["{{BASE_URL}}"],
+          "path": ["auth", "verify-email"]
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"email\": \"{{email}}\", \"password\": \"{{password}}\" }"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/auth/login",
+          "host": ["{{BASE_URL}}"],
+          "path": ["auth", "login"]
+        }
+      }
+    },
+    {
+      "name": "Get Current User",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "{{BASE_URL}}/users/me",
+          "host": ["{{BASE_URL}}"],
+          "path": ["users", "me"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "BASE_URL", "value": "http://localhost:5000" },
+    { "key": "username", "value": "testuser" },
+    { "key": "email", "value": "test@example.com" },
+    { "key": "password", "value": "yourpassword" },
+    { "key": "otp", "value": "123456" },
+    { "key": "token", "value": "" }
+  ]
+}
+
