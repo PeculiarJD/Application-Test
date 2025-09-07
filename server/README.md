@@ -1,10 +1,17 @@
+## Note on Database
+The task required using MySQL, but due to deployment/setup issues, I implemented the API with PostgreSQL (via Neon).  
+The functionality and endpoints remain the same (registration, login with JWT, protected route).  
+A working Neon database URL is already included in the `.env.example`, so there’s no need to create or migrate tables.  
+You can test the API directly using the provided database.
+
+
 REST API - Registration & Login (JWT)
 
-Project Description: This project is a small REST API that implements secure user authentication. It was built as part of an application test task with the following requirements:
+Project Description: This project is a small REST API that implements secure user authentication. It was built as part of an application task with the following requirements:
 Endpoints:
-1. POST /auth/register → Register a new user
-2. POST /auth/login → Authenticate user and return JWT
-3. GET /users/me → Get current user (JWT protected)
+1. POST /auth/register - Register a new user
+2. POST /auth/login - Authenticate user and return JWT
+3. GET /users/me - Get current user (JWT protected)
 
 Stack: Implemented with Node.js + Express and PostgreSQL (via Neon)
 
@@ -30,15 +37,15 @@ Features
 
 Setup Steps
 1. Clone the Repo
-git clone https://github.com/
-cd https://github.com/ server
+git clone https://github.com/PeculiarJD/Application-Test.git
+cd Application-Test/server 
 
 2. Install Dependencies - In the terminal type:
 npm install
 
 3. Configure Environment
 Duplicate .env.example into .env:
-cp .env.example .env
+cp .env.example .env   <!-- type this in the terminal
 
 4. Run the Server
 nodemon server.js
@@ -65,13 +72,13 @@ How to Use in Postman
 1. Import postman_collection.json into Postman.
 2. Open the collection and go to Variables.
 3. Update the placeholders:
-    BASE_URL → http://localhost:5000
+    BASE_URL - http://localhost:5000
     email, password, username, otp
     token will be filled manually after login.
 4. Run requests in this order:
     Register User
     Verify Email (OTP)
-    Login → copy returned JWT into {{token}}
+    Login - copy returned JWT into {{token}}
     Get Current User
 
 Notes:
